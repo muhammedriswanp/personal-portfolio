@@ -36,9 +36,7 @@ export default function Navbar() {
           <span className="font-display font-black text-xl tracking-tighter text-white">
             MUHAMMED RISWAN P<span className="font-light italic text-white/70"></span>
           </span>
-          <span className="text-[8px] font-mono tracking-widest text-white/50 uppercase border border-white/10 px-2 py-0.5 rounded-sm bg-white/5">
-            LOC // 0.0.0
-          </span>
+
         </a>
 
         {/* Desktop Menu */}

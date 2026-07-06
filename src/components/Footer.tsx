@@ -226,11 +226,7 @@ export default function Footer() {
           <div>
             © 1998 — 2026 MUHAMMED RISWAN P. ALL RIGHTS RESERVED.
           </div>
-          <div className="flex items-center space-x-4">
-            <span>VER. 2.1.0 // SHIPPABLE</span>
-            <span>•</span>
-            <span>BUILT WITH NEXT.JS + TAILWIND</span>
-          </div>
+
         </motion.div>
       </div>
     </footer>
