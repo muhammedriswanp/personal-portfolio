@@ -88,7 +88,7 @@ export default function Projects() {
         </motion.div>
 
         {/* Project List */}
-        <div className="flex flex-col border-t border-white/10">
+        <div className="flex flex-col mt-12">
           {projectList.map((project, i) => (
             <motion.a
               href={project.link}
@@ -99,10 +99,14 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-80px" }}
               transition={{ duration: 0.7, delay: i * 0.08, ease: "easeOut" }}
-              className="group relative flex flex-col md:grid md:grid-cols-12 gap-6 py-12 border-b border-white/10 hover:bg-white/[0.01] transition-all duration-300 px-4 -mx-4 cursor-pointer overflow-hidden"
+              className="sticky group flex flex-col md:grid md:grid-cols-12 gap-6 p-8 md:p-12 border border-white/10 rounded-xl bg-[#08080a]/95 backdrop-blur-md hover:bg-[#0b0b0e] hover:border-white/20 transition-all duration-300 px-8 cursor-pointer shadow-2xl mb-8"
+              style={{
+                top: `calc(100px + ${i * 40}px)`,
+                zIndex: i + 1,
+              }}
             >
               {/* Hover Diagonal Drafting Lines */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none overflow-hidden">
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none overflow-hidden rounded-xl">
                 <div className="w-[150%] h-[1px] bg-white/5 rotate-[6deg] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
                 <div className="w-[150%] h-[1px] bg-white/5 -rotate-[6deg] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
                 <span className="absolute top-2 right-4 text-[7px] font-mono text-white/20 tracking-widest">DIAG_ACTIVE // RETR_MODE</span>
