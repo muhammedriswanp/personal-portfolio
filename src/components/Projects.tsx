@@ -25,38 +25,38 @@ export default function Projects() {
     },
     {
       num: "02",
+      title: "Traffic Flow Analyzer: Vehicle Detection & Traffic Analytics",
+      desc: "Built an end-to-end computer vision pipeline to detect, track, and count vehicles from traffic surveillance videos using a pretrained YOLOv8n model with ByteTrack multi-object tracking. Processed videos frame-by-frame with YOLOv8, producing annotated output with bounding boxes, persistent track IDs, confidence scores, and class labels across 4 vehicle classes (car, truck, bus, motorcycle). Implemented virtual line-crossing logic with IN/OUT direction detection using per-track centroid history; resolved 4K video detection failure by tuning inference resolution (imgsz=1280). Generated structured CSV crossing event logs and a 4-panel matplotlib dashboard covering class breakdown, per-minute flow timeline, traffic mix distribution, and summary statistics.",
+      tags: ["Python", "YOLOv8", "OpenCV", "Pandas", "Matplotlib", "Docker"],
+      link: "https://github.com/muhammedriswanp/traffic-flow-analyzer",
+    },
+    {
+      num: "03",
       title: "Customer Segmentation MLOps Pipeline",
       desc: "Engineered 3 customer segments from 2,240 records (29 features) using KMeans (k=3) and PCA retaining 90% variance. Built a complete MLOps stack, deployed a live REST API on Render with automated CI/CD and retraining pipelines. Implemented data drift monitoring with EvidentlyAI KS-test p-value alerts across 25 features.",
       tags: ["Python", "KMeans", "PCA", "FastAPI", "Docker", "DVC", "MLflow", "GitHub Actions", "EvidentlyAI"],
       link: "https://github.com/muhammedriswanp/customer-segmentation-mlops",
     },
     {
-      num: "03",
+      num: "04",
       title: "Bank Marketing Subscription Prediction",
       desc: "Predicted term deposit subscriptions on 41,188 records with severe class imbalance. Evaluated 8 machine learning models and selected a tuned Random Forest achieving ROC-AUC of 0.806. Built a complete Scikit-learn Pipeline with leakage prevention. Deployed Flask API, Streamlit dashboard, and containerized app with GitHub Actions.",
       tags: ["Python", "Random Forest", "Scikit-Learn", "Flask", "Streamlit", "Docker", "GitHub Actions"],
       link: "https://github.com/muhammedriswanp/bankMarketing-subscription-prediction",
     },
     {
-      num: "04",
+      num: "05",
       title: "Olist E-Commerce Sales Performance Dashboard",
       desc: "Developed an interactive 4-page Power BI dashboard analyzing 100,000+ orders. Created KPI metrics and drill-down reports covering sales performance, delivery operations, customer satisfaction, and seller analytics. Identified delivery estimation issues through root-cause analysis and provided executive-level recommendations.",
       tags: ["Power BI", "DAX", "Power Query", "SQL", "Business Intelligence"],
       link: "https://github.com/muhammedriswanp/powerbi-intern-project",
     },
     {
-      num: "05",
+      num: "06",
       title: "Exploratory Data Analysis (EDA) — Stroke Prediction",
       desc: "Performed comprehensive EDA on a stroke prediction healthcare dataset using a structured day-wise workflow. Identified key risk factors including age, glucose level, BMI, hypertension, and smoking behavior through statistical testing and feature engineering.",
       tags: ["Python", "Jupyter Notebook", "pandas", "NumPy", "matplotlib", "seaborn", "Git"],
       link: "https://github.com/muhammedriswanp/Exploratory-Data-Analysis-EDA-Project",
-    },
-    {
-      num: "06",
-      title: "WasteCNN — Garbage Image Classifier",
-      desc: "Built a 6-class garbage image classifier achieving approximately 76% validation accuracy using a custom CNN architecture in PyTorch. Structured the project as a modular src/ package following production-grade practices. Managed tracking with MLflow, versioning with DVC, containerization with Docker, and CI/CD with GitHub Actions.",
-      tags: ["PyTorch", "CNN", "MLflow", "DVC", "Docker", "GitHub Actions"],
-      link: "https://github.com/muhammedriswanp/waste-classification-cnn",
     },
   ];
 

@@ -39,6 +39,19 @@ const LinkedinIcon = ({ size = 16, className = "" }: { size?: number; className?
   </svg>
 );
 
+const LeetCodeIcon = ({ size = 16, className = "" }: { size?: number; className?: string }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    className={className}
+  >
+    <path d="M13.483 0a1.374 1.374 0 0 0-.961.414l-9.777 9.778a1.375 1.375 0 0 0 0 1.945l1.8 1.8a1.375 1.375 0 0 0 1.945 0L15.343 5.09a1.375 1.375 0 0 0 0-1.945l-1.8-1.8a1.374 1.374 0 0 0-.96-.414zM10.8 7.34a1.375 1.375 0 0 0-1.945 0L3.1 13.1a1.375 1.375 0 0 0 0 1.945l1.8 1.8a1.375 1.375 0 0 0 1.945 0l5.756-5.756a1.375 1.375 0 0 0 0-1.945l-1.8-1.8a1.373 1.373 0 0 0-.96-.414z" />
+    <path d="M12 9.515c-.157.001-.31.063-.424.177L6.343 14.93a1.375 1.375 0 0 0 0 1.945l1.8 1.8a1.375 1.375 0 0 0 1.945 0l4.135-4.135 4.135 4.135a1.375 1.375 0 0 0 1.945 0l1.8-1.8a1.375 1.375 0 0 0 0-1.945L12.424 9.692a1.374 1.374 0 0 0-.424-.177z" />
+  </svg>
+);
+
 const letterVariants = {
   hidden: { opacity: 0, y: 40, rotateX: -90 },
   visible: (i: number) => ({

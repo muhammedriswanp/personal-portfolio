@@ -83,7 +83,7 @@ export default function Hero() {
               style={{ x: xRight }}
               className="font-light italic text-white/95  tracking-[0.1em] text-5xl md:text-[4rem] lg:text-[5rem] leading-[0.85] select-none mt-2 flex items-center gap-4 pl-4 md:pl-8"
             >
-              <span className="text-white/30 not-italic">—</span> RISWAN P
+              RISWAN P
             </motion.h4>
             
           </motion.div>
