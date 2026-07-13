@@ -6,6 +6,7 @@ import Projects from "@/components/Projects";
 import SkillsGrid from "@/components/SkillsGrid";
 import Director from "@/components/Director";
 import Experience from "@/components/Experience";
+import GitLeetStats from "@/components/GitLeetStats";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
         <Projects />
         <SkillsGrid />
         <Experience />
+        <GitLeetStats />
       </main>
       <Footer />
     </>
