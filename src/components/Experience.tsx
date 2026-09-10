@@ -6,12 +6,12 @@ export default function Experience() {
   const experiences = [
     {
       company: "Bridgeon Solutions",
-      role: "Data Science Intern",
+      role: "Data Science & AI Intern",
       period: "JUL 2025 — PRESENT",
       location: "Kozhikode, Kerala",
       type: "Professional Experience",
       desc: [
-        "Completed a structured 26-week intensive bootcamp covering statistics, SQL, Python, machine learning, deep learning, computer vision, and MLOps through hands-on projects.",
+        "Built and shipped 10+ end-to-end AI/ML projects spanning classical ML, deep learning, computer vision, MLOps, and Generative AI, applying each domain through production-level implementations.",
         "Designed and deployed an end-to-end MLOps pipeline using DVC, MLflow, Docker, FastAPI, and GitHub Actions with a live cloud REST API on Render serving real-time ML cluster predictions.",
         "Implemented automated CI/CD workflows and weekly data drift monitoring using EvidentlyAI with KS-test p-value alerting across 25 features.",
         "Trained and evaluated 15+ machine learning models across supervised, unsupervised, and deep learning paradigms with MLflow experiment tracking.",
@@ -20,11 +20,11 @@ export default function Experience() {
     {
       company: "WMO Arts and Science College, Muttil",
       role: "B.Sc. Electronics",
-      period: "2022 — 2025",
+      period: "GRADUATED: 2025",
       location: "University of Calicut",
       type: "Academic Background",
       desc: [
-        "Graduated in Electronics with a CGPA of 6.0.",
+        "Graduated with B.Sc. degree in Electronics from WMO Arts and Science College, Muttil under University of Calicut.",
         "Coursework included solid-state electronics, mathematics, computer programming, digital systems, and data processing.",
         "Developed analytical problem-solving skills and technical competencies in database management, algorithmic reasoning, and hardware-software architectures.",
       ],

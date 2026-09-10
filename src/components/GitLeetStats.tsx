@@ -124,7 +124,7 @@ export default function GitLeetStats() {
                 </div>
                 <div className="border border-white/5 bg-white/[0.01] p-3 rounded-sm">
                   <span className="text-[9px] font-mono text-zinc-500 block mb-1">MAIN STACK</span>
-                  <span className="text-[10px] font-mono font-bold text-white truncate block mt-1">PYTHON / PYTORCH</span>
+                  <span className="text-[10px] font-mono font-bold text-white truncate block mt-1">PYTHON / GENAI / MLOPS</span>
                 </div>
               </div>
 

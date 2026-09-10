@@ -28,14 +28,18 @@ export default function Hero() {
   const tickerItems = [
     "DOCKER",
     "PYTORCH",
+    "LANGCHAIN",
+    "LANGGRAPH",
+    "CREWAI",
+    "YOLOV8",
+    "MCP PROTOCOL",
+    "GRAPH RAG",
+    "FINE-TUNING",
     "SCIKIT-LEARN",
     "POWER BI",
-    "DATA SCIENTIST",
-    "ML ENGINEER",
-    "KUBERNETES",
     "MLFLOW",
     "FASTAPI",
-    "GIT",
+    "AWS",
     "PYTHON",
     "POSTGRESQL",
     "GITHUB ACTIONS",
@@ -103,7 +107,7 @@ export default function Hero() {
             style={{ y: descY, opacity: descOpacity }}
             className="text-zinc-400 font-mono text-xs md:text-sm max-w-sm leading-relaxed"
           >
-            Data Science professional with hands-on experience building end-to-end machine learning pipelines and MLOps systems. Proficient in Python, Scikit-learn, PyTorch, and the full MLOps stack. Seeking to deliver scalable, data-driven solutions.
+            Data Science professional with 1+ years of hands-on experience building end-to-end machine learning pipelines, MLOps systems, computer vision systems, and Generative AI applications. Seeking Junior Data Scientist / ML Engineer roles.
           </motion.p>
         </div>
       </div>

@@ -76,13 +76,13 @@ export default function Director() {
             <div className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 text-white/30 font-mono text-xs select-none font-bold">+</div>
 
             <p>
-              An analytical mind with a passion for building robust and scalable machine learning systems. Experienced in data science, MLOps, and database architectures, specializing in bringing models from Jupyter notebooks directly to production environments.
+              Data Science professional with 1+ years of hands-on experience building end-to-end machine learning pipelines and MLOps systems. Proficient in Python, Scikit-learn, PyTorch, and the full MLOps stack including Docker, FastAPI, GitHub Actions, DVC, and MLflow.
             </p>
             <p>
-              Completed a structured 26-week intensive bootcamp covering statistics, SQL, Python, machine learning, deep learning, computer vision, and MLOps through hands-on projects, enabling a solid understanding of model governance and deployment cycles.
+              Built and shipped 10+ end-to-end AI/ML projects spanning classical ML, deep learning, computer vision (YOLOv8, U-Net, face recognition), Generative AI (LangChain, LangGraph, Agentic RAG, AI Agents, MCP), and production-grade REST API deployment on AWS & Render.
             </p>
             <p>
-              Proficient in Python, Scikit-learn, PyTorch, and the full MLOps stack including Docker, FastAPI, GitHub Actions, DVC, and MLflow, with hands-on experience in supervised, unsupervised, and deep learning model engineering.
+              Experienced in automated CI/CD workflows, weekly data drift monitoring (EvidentlyAI), vector search, local LLM orchestration (Ollama), and scalable database modeling (PostgreSQL, DDL).
             </p>
           </motion.div>
         </motion.div>
