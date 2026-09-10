@@ -1,29 +1,31 @@
 import type { Metadata } from "next";
-import { Outfit, Inter, JetBrains_Mono } from "next/font/google";
+import { Space_Grotesk, Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import CustomCursor from "@/components/CustomCursor";
 
-const outfit = Outfit({
-  variable: "--font-outfit",
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
 });
 
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
 });
 
 const jetbrainsMono = JetBrains_Mono({
   variable: "--font-mono",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700", "800"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "MUHAMMED RISWAN P — AI / ML ENGINEER",
-  description: "Personal portfolio of Muhammed Riswan P - AI/ML Engineer. Drawn in ink, shipped in production. Pipelines, models, dashboards.",
+  title: "Muhammed Riswan P | AI & ML Engineer",
+  description: "Portfolio of Muhammed Riswan P — Data Scientist, ML Engineer, and GenAI Developer specializing in LLMs, RAG, Computer Vision, MLOps, and Cloud.",
 };
 
 export default function RootLayout({
@@ -33,8 +35,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark scroll-smooth">
-      <body className={`${outfit.variable} ${inter.variable} ${jetbrainsMono.variable} font-sans bg-bg-dark text-[#FFFFFF] antialiased overflow-x-hidden md:cursor-none`}>
-        <CustomCursor />
+      <body className={`${spaceGrotesk.variable} ${inter.variable} ${jetbrainsMono.variable} font-sans bg-[#070a14] text-[#FFFFFF] antialiased overflow-x-hidden`}>
         {children}
       </body>
     </html>
