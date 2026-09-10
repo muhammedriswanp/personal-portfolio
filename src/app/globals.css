@@ -2,36 +2,66 @@
 
 @theme {
   --font-sans: var(--font-inter), sans-serif;
-  --font-display: var(--font-outfit), sans-serif;
+  --font-display: var(--font-space), sans-serif;
   --font-mono: var(--font-mono), monospace;
   
-  --color-border-main: rgba(255, 255, 255, 0.1);
+  --color-border-main: rgba(255, 255, 255, 0.08);
   --color-text-primary: #ffffff;
-  --color-text-secondary: #f0f4f8;
-  --color-text-muted: rgba(255, 255, 255, 0.45);
-  --color-bg-dark: #070708;
+  --color-text-secondary: #cbd5e1;
+  --color-text-muted: #94a3b8;
+  --color-bg-dark: #070a14;
   
   --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  --animate-marquee: marquee 30s linear infinite;
-  
-  @keyframes marquee {
-    0% { transform: translateX(0%); }
-    100% { transform: translateX(-50%); }
-  }
 }
 
-/* Double-layered ultra-faint white blueprint grid paper layout */
-.portfolio-grid {
-  background-size: 160px 160px, 40px 40px;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+body {
+  background-color: #070a14;
+  color: #f8fafc;
+  overflow-x: hidden;
 }
 
-.portfolio-radial-glow {
-  background: radial-gradient(circle 800px at 50% 200px, rgba(255, 255, 255, 0.02), transparent 85%);
+/* Gradient Text Utility matching Jubair's purple-cyan gradient */
+.gradient-text {
+  background: linear-gradient(135deg, #6366f1 0%, #a855f7 50%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Ambient Glow Blobs */
+.blob-1 {
+  position: absolute;
+  top: -10%;
+  left: 20%;
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.16) 0%, transparent 70%);
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.blob-2 {
+  position: absolute;
+  top: 45%;
+  right: 5%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.14) 0%, transparent 70%);
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.blob-3 {
+  position: absolute;
+  bottom: 10%;
+  left: 10%;
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.14) 0%, transparent 70%);
+  filter: blur(90px);
+  pointer-events: none;
+  z-index: 0;
 }
 
 /* Custom scrollbar */
@@ -40,38 +70,18 @@
   height: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #070708;
+  background: #070a14;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(99, 102, 241, 0.3);
   border-radius: 3px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(99, 102, 241, 0.6);
 }
 
-/* Custom selection */
+/* Selection */
 ::selection {
-  background-color: #ffffff;
-  color: #000000;
-}
-
-/* Custom text stroke utilities */
-.text-stroke-thin {
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.25);
-  color: transparent;
-}
-
-.text-stroke-thick {
-  -webkit-text-stroke: 2px rgba(255, 255, 255, 0.4);
-  color: transparent;
-}
-
-/* Scrollbar hiding utilities */
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  background-color: #6366f1;
+  color: #ffffff;
 }

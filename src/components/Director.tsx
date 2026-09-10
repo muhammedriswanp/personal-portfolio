@@ -1,146 +1,142 @@
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useState, useRef } from "react";
+"use client";
+
+import { motion } from "framer-motion";
 
 export default function Director() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const cardRef = useRef<HTMLDivElement>(null);
-  const [rotateX, setRotateX] = useState(0);
-  const [rotateY, setRotateY] = useState(0);
-
-  // Scroll Parallax logic for Character Card & Text Reveal
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start end", "end start"],
-  });
-
-  const mrY = useTransform(scrollYProgress, [0.1, 0.7], [25, -25]);
-  const mrScale = useTransform(scrollYProgress, [0.1, 0.7], [0.9, 1.2]);
-  const mrOpacity = useTransform(scrollYProgress, [0.1, 0.4, 0.7], [0.4, 1.0, 0.4]);
-  const bioScale = useTransform(scrollYProgress, [0.1, 0.5], [0.96, 1.0]);
-  const bioY = useTransform(scrollYProgress, [0.1, 0.5], [30, 0]);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    const mouseX = e.clientX - rect.left - width / 2;
-    const mouseY = e.clientY - rect.top - height / 2;
-
-    // Calculate rotation angles (max 20 degrees)
-    const rX = -(mouseY / height) * 25;
-    const rY = (mouseX / width) * 25;
-
-    setRotateX(rX);
-    setRotateY(rY);
-  };
-
-  const handleMouseLeave = () => {
-    setRotateX(0);
-    setRotateY(0);
-  };
+  const timeline = [
+    {
+      icon: "🚀",
+      org: "Bridgeon Solutions",
+      year: "2025–Present",
+      tag: "Ongoing",
+      title: "Professional Data Science & AI Internship",
+      desc: "Built and shipped 10+ end-to-end AI/ML projects spanning classical ML, deep learning, computer vision, MLOps, and Generative AI. Designed and deployed live REST APIs on Render with DVC, MLflow, Docker, FastAPI, and GitHub Actions CI/CD workflows with EvidentlyAI data drift monitoring.",
+    },
+    {
+      icon: "🎓",
+      org: "WMO Arts and Science College, Muttil",
+      year: "2022–2025",
+      tag: "Graduated",
+      title: "B.Sc. Electronics (University of Calicut)",
+      desc: "Completed B.Sc. degree in Electronics with distinction, laying a strong foundation in Mathematics, solid-state electronics, computer programming, digital systems, database management, and analytical thinking.",
+    },
+  ];
 
   return (
-    <section 
-      ref={sectionRef}
-      id="about" 
-      className="relative bg-transparent w-full py-24 border-b border-white/10 overflow-hidden"
-    >
-      {/* Background Grid */}
-      <div className="absolute inset-0 portfolio-grid pointer-events-none opacity-20" />
+    <section id="about" className="relative bg-[#070a14] w-full py-20 border-t border-white/10 overflow-hidden">
+      {/* Background ambient radial glow */}
+      <div className="blob-3" />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-        {/* Left Info Column */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="lg:col-span-8 flex flex-col justify-center"
-        >
-          <span className="text-[9px] uppercase tracking-[0.3em] text-zinc-500 font-bold font-mono mb-2">
-            SPECIFICATION // THE_VISION
-          </span>
-          <h2 className="font-display font-black text-4xl md:text-5xl lg:text-6xl text-white tracking-tighter mb-8 leading-none">
-            Drawn in ink,<br />shipped in production.
-          </h2>
-
-          <motion.div 
-            style={{ scale: bioScale, y: bioY }}
-            className="relative border border-white/10 border-dashed p-6 md:p-8 space-y-6 text-zinc-400 font-mono text-xs md:text-sm leading-relaxed max-w-2xl bg-white/[0.01] rounded-sm"
-          >
-            {/* Corner Crosshairs */}
-            <div className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 text-white/30 font-mono text-xs select-none font-bold">+</div>
-            <div className="absolute top-0 right-0 translate-x-1/2 -translate-y-1/2 text-white/30 font-mono text-xs select-none font-bold">+</div>
-            <div className="absolute bottom-0 left-0 -translate-x-1/2 translate-y-1/2 text-white/30 font-mono text-xs select-none font-bold">+</div>
-            <div className="absolute bottom-0 right-0 translate-x-1/2 translate-y-1/2 text-white/30 font-mono text-xs select-none font-bold">+</div>
-
-            <p>
-              An analytical mind with a passion for building robust and scalable machine learning systems. Experienced in data science, MLOps, and database architectures, specializing in bringing models from Jupyter notebooks directly to production environments.
-            </p>
-            <p>
-              Completed a structured 26-week intensive bootcamp covering statistics, SQL, Python, machine learning, deep learning, computer vision, and MLOps through hands-on projects, enabling a solid understanding of model governance and deployment cycles.
-            </p>
-            <p>
-              Proficient in Python, Scikit-learn, PyTorch, and the full MLOps stack including Docker, FastAPI, GitHub Actions, DVC, and MLflow, with hands-on experience in supervised, unsupervised, and deep learning model engineering.
-            </p>
-          </motion.div>
-        </motion.div>
-
-        {/* Right Placehodler MR Card */}
-        <div className="lg:col-span-4 flex justify-center lg:justify-end">
+      <div className="max-w-[1020px] mx-auto px-6 md:px-10 relative z-10">
+        
+        {/* Content Layout Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+          
+          {/* Left Column: Avatar & 3 Info Pills (No heavy card box) */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="w-full max-w-[280px]"
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-4 flex flex-col items-center lg:items-start space-y-6"
           >
-            <motion.div
-              ref={cardRef}
-              onMouseMove={handleMouseMove}
-              onMouseLeave={handleMouseLeave}
-              animate={{ rotateX, rotateY }}
-              transition={{ type: "spring", stiffness: 120, damping: 15 }}
-              style={{ transformStyle: "preserve-3d", perspective: 1000 }}
-              className="w-full aspect-[4/5] bg-white/[0.02] border border-white/10 border-dashed rounded-sm flex flex-col justify-between p-6 relative group cursor-crosshair"
-            >
-              {/* Corner Indicators */}
-              <div className="absolute top-0 left-0 w-3 h-3 border-t border-l border-white/30" />
-              <div className="absolute top-0 right-0 w-3 h-3 border-t border-r border-white/30" />
-              <div className="absolute bottom-0 left-0 w-3 h-3 border-b border-l border-white/30" />
-              <div className="absolute bottom-0 right-0 w-3 h-3 border-b border-r border-white/30" />
+            {/* Avatar Ring with orbiting glowing dots */}
+            <div className="relative my-2">
+              <div className="w-36 h-36 md:w-40 md:h-40 rounded-full p-[2px] bg-gradient-to-tr from-cyan-400 via-indigo-500 to-purple-500 shadow-[0_0_40px_rgba(99,102,241,0.45)] flex items-center justify-center relative overflow-hidden">
+                <img
+                  src="/me.png"
+                  alt="Muhammed Riswan P"
+                  className="w-full h-full rounded-full object-cover"
+                />
+                {/* Orbiting colored dots matching reference */}
+                <span className="absolute top-1 right-4 w-2.5 h-2.5 rounded-full bg-purple-400 shadow-md" />
+                <span className="absolute bottom-3 left-0 w-2.5 h-2.5 rounded-full bg-amber-400 shadow-md" />
+                <span className="absolute top-1/2 -right-1 w-2.5 h-2.5 rounded-full bg-cyan-400 shadow-md" />
+              </div>
+            </div>
 
-              {/* Giant Graphic "MR" with schematic guidelines */}
-              <div className="flex-1 flex items-center justify-center select-none relative overflow-hidden" style={{ transform: "translateZ(30px)" }}>
-                {/* Background schematic lines */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-[0.15] pointer-events-none">
-                  <div className="w-[140%] h-[1px] bg-white/25 rotate-12 absolute" />
-                  <div className="w-[140%] h-[1px] bg-white/25 -rotate-12 absolute" />
-                  <div className="w-32 h-32 border border-white/25 border-dashed rounded-full absolute" />
-                  <div className="w-16 h-16 border border-white/20 rounded-full absolute flex items-center justify-center">
-                    <span className="text-[6px] text-white/20 font-mono tracking-widest">GRID_REF</span>
+            {/* 3 Vertically Stacked Info Pills */}
+            <div className="flex flex-col gap-3 w-full max-w-xs font-sans text-xs text-slate-300">
+              <div className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-[#090e1c]/90 border border-white/10 shadow-sm">
+                <span className="text-sm">📍</span>
+                <span>Kozhikode, Kerala, India 🇮🇳</span>
+              </div>
+              <div className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-[#090e1c]/90 border border-white/10 shadow-sm">
+                <span className="text-sm">💼</span>
+                <span>Open to Work</span>
+              </div>
+              <div className="flex items-center gap-3 px-4 py-3 rounded-2xl bg-[#090e1c]/90 border border-white/10 shadow-sm">
+                <span className="text-sm">🌐</span>
+                <span>English · Malayalam</span>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Right Column: Bio Paragraphs & Timeline (No heavy outer cards) */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-8 flex flex-col space-y-6"
+          >
+            {/* Bio Title */}
+            <h2 className="font-display font-bold text-2xl sm:text-3xl md:text-4xl text-white tracking-tight">
+              Turning Data into Intelligence
+            </h2>
+
+            {/* Bio Copy Paragraphs */}
+            <div className="text-slate-300 font-sans text-sm md:text-base leading-relaxed space-y-4">
+              <p>
+                I'm <strong className="text-white font-semibold">Muhammed Riswan P</strong>, a Data Scientist and AI Engineer based in Kozhikode, Kerala. Over the past year at Bridgeon Solutions, I've immersed myself in building production-ready AI systems — spanning multi-agent LLM workflows, computer vision pipelines, and automated cloud MLOps architectures.
+              </p>
+              <p>
+                With <strong className="text-white font-semibold">10+ projects</strong> across Generative AI, Machine Learning, Computer Vision, BI dashboards, and MLOps, I don't just learn concepts — I build real systems that solve real problems.
+              </p>
+              <p>
+                I'm passionate about bridging the gap between raw data and business value, whether that's through a production LLM API, an automated MLOps pipeline, or an interactive Power BI dashboard.
+              </p>
+            </div>
+
+            {/* Clean Timeline List (No enclosing card boxes) */}
+            <div className="relative pl-8 border-l border-indigo-500/30 space-y-8 pt-4 mt-4">
+              {timeline.map((item) => (
+                <div key={item.org} className="relative group">
+                  {/* Node Icon on vertical line */}
+                  <div className="absolute -left-[49px] top-0 w-8 h-8 rounded-full bg-[#070b19] border border-indigo-500/60 flex items-center justify-center text-xs shadow-md group-hover:scale-110 transition-transform">
+                    {item.icon}
+                  </div>
+
+                  {/* Node Item Content directly on background */}
+                  <div className="flex flex-col gap-1.5">
+                    <div className="flex items-center justify-between gap-2">
+                      <div>
+                        <span className="text-xs font-sans font-bold text-indigo-400 block">
+                          {item.org}
+                        </span>
+                        <span className="text-[11px] font-sans text-slate-500">
+                          {item.year}
+                        </span>
+                      </div>
+                      <span className="text-[10px] font-sans text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-0.5 rounded-full font-semibold">
+                        {item.tag}
+                      </span>
+                    </div>
+
+                    <h3 className="font-display font-bold text-base md:text-lg text-white mt-0.5">
+                      {item.title}
+                    </h3>
+
+                    <p className="text-xs md:text-sm font-sans text-slate-400 leading-relaxed">
+                      {item.desc}
+                    </p>
                   </div>
                 </div>
-                <motion.span 
-                  style={{ y: mrY, scale: mrScale, opacity: mrOpacity }}
-                  className="font-display font-black text-9xl text-white/5 tracking-tighter group-hover:text-white/15 transition-all duration-500 relative z-10 block"
-                >
-                  MR
-                </motion.span>
-              </div>
+              ))}
+            </div>
 
-              {/* Signature name */}
-              <div style={{ transform: "translateZ(20px)" }} className="relative z-10">
-                <span className="text-[8px] font-mono text-zinc-500 uppercase tracking-widest block mb-1">
-                  SYS_RECORDS // VERIFIED_ID
-                </span>
-                <span className="text-sm font-display font-bold text-white uppercase tracking-wider">
-                  Muhammed Riswan P
-                </span>
-              </div>
-            </motion.div>
           </motion.div>
+
         </div>
       </div>
     </section>

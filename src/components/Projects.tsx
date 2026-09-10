@@ -1,153 +1,191 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight } from "lucide-react";
+import { ExternalLink } from "lucide-react";
+
+const GithubIcon = ({ size = 16, className = "" }: { size?: number; className?: string }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" />
+    <path d="M9 18c-4.51 2-5-2-7-2" />
+  </svg>
+);
 
 export default function Projects() {
-  const projectList = [
+  const featuredProjects = [
     {
-      num: "01",
+      badge: "⭐ Flagship GenAI",
+      category: "GenAI · RAG · NLP",
       title: "JobFit RAG Assistant",
-      desc: "Developed a RAG-powered resume-to-job matching assistant using a local Mistral 7B LLM via Ollama. Built an end-to-end pipeline with PDF ingestion, ChromaDB semantic retrieval, Sentence-BERT similarity scoring, token-budgeted retrieval, and an LLM agent that performs match scoring, skill extraction, JD summarization, and question answering while validating outputs to reduce hallucinations.",
-      tags: [
-        "Python",
-        "Mistral 7B",
-        "Ollama",
-        "RAG",
-        "ChromaDB",
-        "Sentence-BERT",
-        "LangChain",
-        "pdfplumber",
-        "RecursiveCharacterTextSplitter",
-        "Transformers",
+      subtitle: "AI-Powered Resume-to-Job Matching Engine",
+      desc: "An intelligent assistant that analyzes job descriptions against resumes and portfolios. Built a semantic matching engine using Sentence-BERT embeddings and cosine similarity, with Hugging Face pipelines for JD summarization and QA in a modular package architecture.",
+      highlights: [
+        "Semantic matching with Sentence-BERT & cosine similarity",
+        "Hugging Face transformers for summarization & QA",
+        "Modular Python package architecture for LLM integration",
+        "Prompt engineering for skill extraction & matching",
       ],
+      tags: ["Python", "Hugging Face", "Sentence Transformers", "NLP", "Semantic Similarity", "Prompt Engineering", "RAG"],
       link: "https://github.com/muhammedriswanp/jobfit-rag-assistant",
+      color: "#6366f1",
     },
     {
-      num: "02",
-      title: "Traffic Flow Analyzer: Vehicle Detection & Traffic Analytics",
-      desc: "Built an end-to-end computer vision pipeline to detect, track, and count vehicles from traffic surveillance videos using a pretrained YOLOv8n model with ByteTrack multi-object tracking. Processed videos frame-by-frame with YOLOv8, producing annotated output with bounding boxes, persistent track IDs, confidence scores, and class labels across 4 vehicle classes (car, truck, bus, motorcycle). Implemented virtual line-crossing logic with IN/OUT direction detection using per-track centroid history; resolved 4K video detection failure by tuning inference resolution (imgsz=1280). Generated structured CSV crossing event logs and a 4-panel matplotlib dashboard covering class breakdown, per-minute flow timeline, traffic mix distribution, and summary statistics.",
-      tags: ["Python", "YOLOv8", "OpenCV", "Pandas", "Matplotlib", "Docker"],
+      badge: "👁️ Computer Vision",
+      category: "Computer Vision · Deep Learning · Analytics",
+      title: "Traffic Flow Analyzer",
+      subtitle: "Vehicle Detection & Traffic Analytics Pipeline",
+      desc: "End-to-end computer vision pipeline to detect, track, and count vehicles from traffic surveillance videos using YOLOv8n and ByteTrack multi-object tracking. Features virtual line-crossing logic with IN/OUT direction detection (tuned imgsz=1280 for 4K video) and a 4-panel analytics dashboard.",
+      highlights: [
+        "YOLOv8n object detection across 4 vehicle classes",
+        "ByteTrack persistent multi-object tracking",
+        "Virtual line-crossing direction logic with centroid history",
+        "4-panel Matplotlib dashboard & CSV event logger",
+      ],
+      tags: ["Python", "YOLOv8", "ByteTrack", "OpenCV", "Pandas", "Matplotlib", "Docker"],
       link: "https://github.com/muhammedriswanp/traffic-flow-analyzer",
+      color: "#f43f5e",
     },
     {
-      num: "03",
+      badge: "☁️ MLOps Stack",
+      category: "MLOps · Cloud · Data Drift",
       title: "Customer Segmentation MLOps Pipeline",
-      desc: "Engineered 3 customer segments from 2,240 records (29 features) using KMeans (k=3) and PCA retaining 90% variance. Built a complete MLOps stack, deployed a live REST API on Render with automated CI/CD and retraining pipelines. Implemented data drift monitoring with EvidentlyAI KS-test p-value alerts across 25 features.",
+      subtitle: "Production ML Pipeline with Live REST API & Data Drift Alerts",
+      desc: "Engineered 3 customer segments from 2,240 records using KMeans (k=3) & PCA (90% variance). Built a complete MLOps stack with DVC, MLflow, FastAPI, Docker, and GitHub Actions CI/CD deployed live on Render with EvidentlyAI p-value data drift monitoring across 25 features.",
+      highlights: [
+        "KMeans clustering & PCA dimensionality reduction",
+        "FastAPI REST endpoint deployed live on Render",
+        "Automated CI/CD with GitHub Actions & Docker",
+        "EvidentlyAI data drift monitoring with KS-test p-value alerts",
+      ],
       tags: ["Python", "KMeans", "PCA", "FastAPI", "Docker", "DVC", "MLflow", "GitHub Actions", "EvidentlyAI"],
       link: "https://github.com/muhammedriswanp/customer-segmentation-mlops",
+      color: "#10b981",
     },
     {
-      num: "04",
-      title: "Bank Marketing Subscription Prediction",
-      desc: "Predicted term deposit subscriptions on 41,188 records with severe class imbalance. Evaluated 8 machine learning models and selected a tuned Random Forest achieving ROC-AUC of 0.806. Built a complete Scikit-learn Pipeline with leakage prevention. Deployed Flask API, Streamlit dashboard, and containerized app with GitHub Actions.",
-      tags: ["Python", "Random Forest", "Scikit-Learn", "Flask", "Streamlit", "Docker", "GitHub Actions"],
-      link: "https://github.com/muhammedriswanp/bankMarketing-subscription-prediction",
-    },
-    {
-      num: "05",
-      title: "Olist E-Commerce Sales Performance Dashboard",
-      desc: "Developed an interactive 4-page Power BI dashboard analyzing 100,000+ orders. Created KPI metrics and drill-down reports covering sales performance, delivery operations, customer satisfaction, and seller analytics. Identified delivery estimation issues through root-cause analysis and provided executive-level recommendations.",
+      badge: "📊 BI & Analytics",
+      category: "Business Intelligence · Analytics",
+      title: "Olist E-Commerce Performance Dashboard",
+      subtitle: "Executive 4-Page Power BI Dashboard & Logistics Analytics",
+      desc: "Developed an interactive 4-page Power BI dashboard analyzing 100,000+ orders. Created KPI metrics and drill-down reports covering sales performance, delivery operations, customer satisfaction, and seller analytics with root-cause delivery estimation recommendations.",
+      highlights: [
+        "4-page interactive Power BI drill-down dashboard",
+        "DAX metrics & Power Query ETL pipeline",
+        "Root-cause analysis across 100,000+ e-commerce orders",
+        "Operational recommendations for logistics & seller performance",
+      ],
       tags: ["Power BI", "DAX", "Power Query", "SQL", "Business Intelligence"],
       link: "https://github.com/muhammedriswanp/powerbi-intern-project",
-    },
-    {
-      num: "06",
-      title: "Exploratory Data Analysis (EDA) — Stroke Prediction",
-      desc: "Performed comprehensive EDA on a stroke prediction healthcare dataset using a structured day-wise workflow. Identified key risk factors including age, glucose level, BMI, hypertension, and smoking behavior through statistical testing and feature engineering.",
-      tags: ["Python", "Jupyter Notebook", "pandas", "NumPy", "matplotlib", "seaborn", "Git"],
-      link: "https://github.com/muhammedriswanp/Exploratory-Data-Analysis-EDA-Project",
+      color: "#f59e0b",
     },
   ];
 
   return (
-    <section id="projects" className="relative bg-transparent w-full py-24 border-b border-white/10">
-      {/* Background Grid */}
-      <div className="absolute inset-0 portfolio-grid pointer-events-none opacity-20" />
+    <section id="featured" className="relative bg-[#070a14] w-full py-20 border-t border-white/10 overflow-hidden">
+      {/* Background glow */}
+      <div className="blob-2" />
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
-        {/* Header */}
+      <div className="max-w-[1020px] mx-auto px-6 md:px-10 relative z-10">
+        
+        {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 45 }}
+          initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="flex flex-col md:flex-row justify-between items-start md:items-end mb-20 gap-4"
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="flex flex-col items-center text-center mb-14"
         >
-          <div>
-            <span className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 font-bold font-mono">
-              Selected Works
-            </span>
-            <h2 className="font-display font-black text-4xl md:text-5xl lg:text-6xl text-white tracking-tighter mt-2">
-              Pipelines, models,<br />dashboards.
-            </h2>
+          <div className="px-3.5 py-1 rounded-full bg-[#13192b] border border-[#2b3553] text-[#818cf8] text-[11px] font-mono tracking-widest uppercase mb-3.5 shadow-sm inline-flex items-center gap-2">
+            <span className="font-bold text-[#6366f1]">03</span>
+            <span>FEATURED WORK</span>
           </div>
-          <span className="text-xs font-mono text-zinc-500 max-w-xs leading-relaxed md:text-right">
-            Machine learning implementations and automated workflows built with production-grade engineering principles.
-          </span>
+          <h2 className="font-display font-black text-3xl md:text-4xl lg:text-5xl text-white tracking-tight">
+            Flagship <span className="gradient-text">Projects</span>
+          </h2>
+          <p className="text-slate-400 font-mono text-xs md:text-sm max-w-lg mt-2.5">
+            Production-grade implementations across Generative AI, Computer Vision, MLOps pipelines, and Business Intelligence.
+          </p>
         </motion.div>
 
-        {/* Project List */}
-        <div className="flex flex-col mt-12">
-          {projectList.map((project, i) => (
-            <motion.a
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
+        {/* Featured Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {featuredProjects.map((project, i) => (
+            <motion.div
               key={project.title}
-              initial={{ opacity: 0, y: 40 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ duration: 0.7, delay: i * 0.08, ease: "easeOut" }}
-              className="sticky group flex flex-col md:grid md:grid-cols-12 gap-6 p-8 md:p-12 border border-white/10 rounded-xl bg-[#08080a]/95 backdrop-blur-md hover:bg-[#0b0b0e] hover:border-white/20 transition-all duration-300 px-8 cursor-pointer shadow-2xl mb-8"
-              style={{
-                top: `calc(100px + ${i * 40}px)`,
-                zIndex: i + 1,
-              }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              className="p-7 rounded-3xl bg-[#090e1c]/80 border border-white/10 hover:border-indigo-500/30 backdrop-blur-md transition-all duration-300 flex flex-col justify-between group shadow-2xl relative overflow-hidden"
             >
-              {/* Hover Diagonal Drafting Lines */}
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none overflow-hidden rounded-xl">
-                <div className="w-[150%] h-[1px] bg-white/5 rotate-[6deg] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-                <div className="w-[150%] h-[1px] bg-white/5 -rotate-[6deg] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-                <span className="absolute top-2 right-4 text-[7px] font-mono text-white/20 tracking-widest">DIAG_ACTIVE // RETR_MODE</span>
-              </div>
+              <div>
+                {/* Meta Top Bar */}
+                <div className="flex items-center justify-between mb-4 gap-2">
+                  <span className="text-[11px] font-mono font-bold px-3 py-0.5 rounded-full bg-white/5 border border-white/10 text-white">
+                    {project.badge}
+                  </span>
+                  <span className="text-[10px] font-mono text-indigo-400">
+                    {project.category}
+                  </span>
+                </div>
 
-              {/* Project Number */}
-              <div className="md:col-span-1 text-sm font-mono text-white/40 group-hover:text-white transition-colors duration-300 font-bold relative z-10">
-                {project.num}
-              </div>
-
-              {/* Project Title */}
-              <div className="md:col-span-5 relative z-10">
-                <h3 className="font-display font-black text-2xl text-white/80 group-hover:text-white transition-colors duration-300 leading-tight">
+                {/* Title & Subtitle */}
+                <h3 className="font-display font-bold text-xl md:text-2xl text-white group-hover:text-indigo-300 transition-colors">
                   {project.title}
                 </h3>
-              </div>
+                <p className="text-xs font-mono text-slate-400 mt-1 mb-3.5 font-semibold">
+                  {project.subtitle}
+                </p>
 
-              {/* Description & Tags */}
-              <div className="md:col-span-5 flex flex-col justify-between gap-4 relative z-10">
-                <p className="text-xs font-mono text-zinc-400 group-hover:text-zinc-300 transition-colors duration-300 leading-relaxed">
+                {/* Description */}
+                <p className="text-xs font-mono text-slate-300 leading-relaxed mb-5">
                   {project.desc}
                 </p>
-                <div className="flex flex-wrap gap-1.5 pt-2">
+
+                {/* Highlights List */}
+                <div className="space-y-1.5 mb-5 border-t border-b border-white/10 py-3.5">
+                  {project.highlights.map((h, idx) => (
+                    <div key={idx} className="flex items-start gap-2 text-xs font-mono text-slate-400">
+                      <span className="text-indigo-400 shrink-0">✦</span>
+                      <span>{h}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Tags & Action Link */}
+              <div>
+                <div className="flex flex-wrap gap-1.5 mb-5">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="text-[9px] font-mono tracking-wider text-zinc-500 border border-white/5 px-2 py-0.5 rounded-sm bg-white/[0.01] group-hover:border-white/20 group-hover:text-white transition-all duration-300"
+                      className="text-[10px] font-mono px-2.5 py-0.5 rounded bg-white/5 border border-white/10 text-slate-300"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
-              </div>
 
-              {/* Link Arrow */}
-              <div className="md:col-span-1 flex items-start md:justify-end justify-start pt-1 relative z-10">
-                <div className="w-7 h-7 rounded-full border border-white/10 group-hover:border-white flex items-center justify-center text-zinc-500 group-hover:text-white transition-all duration-300">
-                  <ArrowUpRight size={14} className="group-hover:rotate-45 transition-transform duration-300" />
-                </div>
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-xs font-mono font-bold text-white hover:text-indigo-400 transition-colors"
+                >
+                  <GithubIcon size={16} />
+                  <span>View Repository on GitHub</span>
+                  <ExternalLink size={13} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                </a>
               </div>
-            </motion.a>
+            </motion.div>
           ))}
         </div>
       </div>

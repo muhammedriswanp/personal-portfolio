@@ -2,24 +2,22 @@
 
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import Projects from "@/components/Projects";
-import SkillsGrid from "@/components/SkillsGrid";
 import Director from "@/components/Director";
-import Experience from "@/components/Experience";
-import GitLeetStats from "@/components/GitLeetStats";
+import SkillsGrid from "@/components/SkillsGrid";
+import Projects from "@/components/Projects";
+import AllProjects from "@/components/AllProjects";
 import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="flex-1 w-full">
+      <main className="flex-1 w-full bg-[#060913]">
         <Hero />
         <Director />
-        <Projects />
         <SkillsGrid />
-        <Experience />
-        <GitLeetStats />
+        <Projects />
+        <AllProjects />
       </main>
       <Footer />
     </>

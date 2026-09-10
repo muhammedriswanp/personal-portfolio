@@ -34,7 +34,6 @@ const LeetCodeIcon = ({ size = 16, className = "" }: { size?: number; className?
 );
 
 export default function GitLeetStats() {
-  // Simulating GitHub Commits Grid
   const commitGrid = [
     [2, 3, 0, 1, 4, 2, 3],
     [1, 0, 2, 3, 1, 0, 2],
@@ -44,94 +43,84 @@ export default function GitLeetStats() {
 
   const getColorClass = (intensity: number) => {
     switch (intensity) {
-      case 0: return "bg-zinc-900 border border-white/5";
+      case 0: return "bg-slate-900 border border-white/5";
       case 1: return "bg-emerald-950/40 border border-emerald-900/30";
       case 2: return "bg-emerald-900/60 border border-emerald-800/45";
       case 3: return "bg-emerald-800/80 border border-emerald-700/60";
-      case 4: return "bg-emerald-600 border border-emerald-500/80 shadow-[0_0_8px_rgba(16,185,129,0.3)]";
-      default: return "bg-zinc-900";
+      case 4: return "bg-emerald-500 border border-emerald-400 shadow-[0_0_8px_rgba(16,185,129,0.4)]";
+      default: return "bg-slate-900";
     }
   };
 
   return (
-    <section id="telemetry" className="relative bg-transparent w-full py-24 border-b border-white/10 overflow-hidden">
-      {/* Background Grid */}
-      <div className="absolute inset-0 portfolio-grid pointer-events-none opacity-20" />
-
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+    <section id="telemetry" className="relative bg-[#060913] w-full py-24 border-t border-white/10 overflow-hidden">
+      <div className="max-w-[1020px] mx-auto px-6 md:px-10 relative z-10">
+        
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
-          className="mb-20"
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mb-16"
         >
-          <span className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 font-bold font-mono">
-            Telemetry // Activity
-          </span>
-          <h2 className="font-display font-black text-4xl md:text-5xl lg:text-6xl text-white tracking-tighter mt-2">
-            Engines in motion.
+          <div className="inline-flex items-center gap-2 text-xs font-mono font-bold tracking-widest text-indigo-400 uppercase mb-3 px-3 py-1 rounded-md bg-indigo-500/10 border border-indigo-500/20">
+            <span>05 // Telemetry</span>
+          </div>
+          <h2 className="font-display font-black text-4xl md:text-5xl lg:text-6xl text-white tracking-tight">
+            Activity <span className="gradient-text">Telemetry</span>
           </h2>
         </motion.div>
 
-        {/* Dashboard Grid */}
+        {/* Cards Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           
           {/* GitHub Card */}
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
+            initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="group relative bg-[#070708] border border-white/5 p-8 rounded-sm flex flex-col justify-between hover:border-white/10 transition-all duration-300 min-h-[380px]"
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="p-8 rounded-2xl bg-slate-900/60 border border-white/10 hover:border-emerald-500/30 backdrop-blur-md transition-all duration-300 flex flex-col justify-between shadow-2xl"
           >
-            {/* Crosshair Corner Indicators */}
-            <div className="absolute top-2 right-2 w-1.5 h-1.5 bg-white/20 group-hover:bg-white rounded-full transition-colors" />
-            <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-white/10" />
-            <div className="absolute bottom-0 right-0 w-2 h-2 border-b border-r border-white/10" />
-
             <div>
-              {/* Header Info */}
-              <div className="flex items-center justify-between border-b border-white/5 pb-4 mb-6">
+              <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-sm border border-white/10 bg-white/[0.02] flex items-center justify-center">
-                    <GithubIcon className="w-4 h-4 text-white/80 group-hover:text-white transition-colors" />
+                  <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
+                    <GithubIcon className="w-5 h-5 text-white" />
                   </div>
                   <div>
-                    <span className="text-[8px] font-mono text-zinc-500 uppercase tracking-widest block">
-                      PLATFORM // GITHUB
+                    <span className="text-[10px] font-mono text-slate-400 uppercase tracking-widest block">
+                      Platform // GitHub
                     </span>
-                    <span className="text-sm font-display font-bold text-white tracking-wide">
+                    <span className="text-base font-display font-bold text-white tracking-wide">
                       @muhammedriswanp
                     </span>
                   </div>
                 </div>
-                <span className="text-[9px] font-mono text-emerald-400 bg-emerald-500/5 border border-emerald-500/10 px-2 py-0.5 rounded-sm">
+                <span className="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-1 rounded-md">
                   SYNC_ACTIVE
                 </span>
               </div>
 
-              {/* Stats Grid */}
-              <div className="grid grid-cols-3 gap-4 mb-8">
-                <div className="border border-white/5 bg-white/[0.01] p-3 rounded-sm">
-                  <span className="text-[9px] font-mono text-zinc-500 block mb-1">REPOSITORIES</span>
+              <div className="grid grid-cols-3 gap-3 mb-8">
+                <div className="border border-white/10 bg-white/5 p-3 rounded-xl">
+                  <span className="text-[9px] font-mono text-slate-400 block mb-1">REPOSITORIES</span>
                   <span className="text-xl font-display font-black text-white">15+</span>
                 </div>
-                <div className="border border-white/5 bg-white/[0.01] p-3 rounded-sm">
-                  <span className="text-[9px] font-mono text-zinc-500 block mb-1">ANNUAL COMMITS</span>
+                <div className="border border-white/10 bg-white/5 p-3 rounded-xl">
+                  <span className="text-[9px] font-mono text-slate-400 block mb-1">COMMITS</span>
                   <span className="text-xl font-display font-black text-white">600+</span>
                 </div>
-                <div className="border border-white/5 bg-white/[0.01] p-3 rounded-sm">
-                  <span className="text-[9px] font-mono text-zinc-500 block mb-1">MAIN STACK</span>
-                  <span className="text-[10px] font-mono font-bold text-white truncate block mt-1">PYTHON / PYTORCH</span>
+                <div className="border border-white/10 bg-white/5 p-3 rounded-xl">
+                  <span className="text-[9px] font-mono text-slate-400 block mb-1">STACK</span>
+                  <span className="text-[10px] font-mono font-bold text-indigo-300 truncate block mt-1">PYTHON / MLOPS</span>
                 </div>
               </div>
 
-              {/* simulated commit board */}
               <div>
-                <span className="text-[9px] font-mono text-zinc-500 block mb-3 uppercase tracking-wider">
-                  Contribution Stream (Recent Weeks)
+                <span className="text-[10px] font-mono text-slate-400 block mb-3 uppercase tracking-wider">
+                  Contribution Stream (Recent Activity)
                 </span>
                 <div className="flex gap-2 items-center">
                   <div className="grid grid-rows-4 grid-flow-col gap-1.5">
@@ -139,148 +128,131 @@ export default function GitLeetStats() {
                       row.map((val, cIdx) => (
                         <div
                           key={`commit-${rIdx}-${cIdx}`}
-                          className={`w-3.5 h-3.5 rounded-[2px] transition-all duration-300 ${getColorClass(val)}`}
+                          className={`w-3.5 h-3.5 rounded-sm transition-all duration-300 ${getColorClass(val)}`}
                         />
                       ))
                     )}
                   </div>
-                  <div className="ml-4 flex flex-col justify-between h-full py-1 text-[8px] font-mono text-zinc-500 gap-1">
+                  <div className="ml-4 flex flex-col justify-between h-full py-1 text-[10px] font-mono text-slate-400 gap-1">
                     <div className="flex items-center gap-1.5">
-                      <GitBranch className="w-3 h-3 text-white/40" />
-                      <span>Continuous Integration Dev</span>
+                      <GitBranch className="w-3.5 h-3.5 text-indigo-400" />
+                      <span>Continuous Integration</span>
                     </div>
-                    <div>
-                      <span>Deployments: 100% successful</span>
-                    </div>
+                    <span className="text-emerald-400">Deployments: 100% Active</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Action Link */}
-            <div className="mt-8 pt-4 border-t border-white/5 flex items-center justify-between">
-              <span className="text-[8px] font-mono text-zinc-600">
-                URL // github.com/muhammedriswanp
+            <div className="mt-8 pt-4 border-t border-white/10 flex items-center justify-between">
+              <span className="text-[10px] font-mono text-slate-500">
+                github.com/muhammedriswanp
               </span>
               <a
                 href="https://github.com/muhammedriswanp"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-[10px] font-mono font-bold tracking-wider text-zinc-400 hover:text-white transition-colors group/link"
+                className="inline-flex items-center gap-1 text-xs font-mono font-bold text-indigo-400 hover:text-white transition-colors"
               >
-                DISCOVER REPOS
-                <ArrowUpRight className="w-3 h-3 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+                <span>Discover Repos</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
             </div>
           </motion.div>
 
           {/* LeetCode Card */}
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
+            initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="group relative bg-[#070708] border border-white/5 p-8 rounded-sm flex flex-col justify-between hover:border-white/10 transition-all duration-300 min-h-[380px]"
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="p-8 rounded-2xl bg-slate-900/60 border border-white/10 hover:border-amber-500/30 backdrop-blur-md transition-all duration-300 flex flex-col justify-between shadow-2xl"
           >
-            {/* Crosshair Corner Indicators */}
-            <div className="absolute top-2 right-2 w-1.5 h-1.5 bg-white/20 group-hover:bg-white rounded-full transition-colors" />
-            <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-white/10" />
-            <div className="absolute bottom-0 left-0 w-2 h-2 border-b border-l border-white/10" />
-
             <div>
-              {/* Header Info */}
-              <div className="flex items-center justify-between border-b border-white/5 pb-4 mb-6">
+              <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
                 <div className="flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-sm border border-white/10 bg-white/[0.02] flex items-center justify-center">
-                    <LeetCodeIcon className="w-4 h-4 text-amber-500/80 group-hover:text-amber-500 transition-colors" />
+                  <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
+                    <LeetCodeIcon className="w-5 h-5 text-amber-500" />
                   </div>
                   <div>
-                    <span className="text-[8px] font-mono text-zinc-500 uppercase tracking-widest block">
-                      PLATFORM // LEETCODE
+                    <span className="text-[10px] font-mono text-slate-400 uppercase tracking-widest block">
+                      Platform // LeetCode
                     </span>
-                    <span className="text-sm font-display font-bold text-white tracking-wide">
+                    <span className="text-base font-display font-bold text-white tracking-wide">
                       @muhammed_riswan_p
                     </span>
                   </div>
                 </div>
-                <span className="text-[9px] font-mono text-amber-400 bg-amber-500/5 border border-amber-500/10 px-2 py-0.5 rounded-sm">
+                <span className="text-[10px] font-mono text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-1 rounded-md">
                   COMPILER_ONLINE
                 </span>
               </div>
 
-              {/* Stats Grid */}
-              <div className="grid grid-cols-3 gap-4 mb-6">
-                <div className="border border-white/5 bg-white/[0.01] p-3 rounded-sm">
-                  <span className="text-[9px] font-mono text-zinc-500 block mb-1">PROBLEMS SOLVED</span>
+              <div className="grid grid-cols-3 gap-3 mb-6">
+                <div className="border border-white/10 bg-white/5 p-3 rounded-xl">
+                  <span className="text-[9px] font-mono text-slate-400 block mb-1">SOLVED</span>
                   <span className="text-xl font-display font-black text-white">153</span>
                 </div>
-                <div className="border border-white/5 bg-white/[0.01] p-3 rounded-sm">
-                  <span className="text-[9px] font-mono text-zinc-500 block mb-1">STREAK STATUS</span>
+                <div className="border border-white/10 bg-white/5 p-3 rounded-xl">
+                  <span className="text-[9px] font-mono text-slate-400 block mb-1">STREAK</span>
                   <span className="text-xl font-display font-black text-white flex items-center gap-1">
                     ACTIVE <Flame className="w-4 h-4 text-amber-500 fill-amber-500 animate-pulse" />
                   </span>
                 </div>
-                <div className="border border-white/5 bg-white/[0.01] p-3 rounded-sm">
-                  <span className="text-[9px] font-mono text-zinc-500 block mb-1">RANK STATUS</span>
-                  <span className="text-[10px] font-mono font-bold text-white truncate block mt-1">TOP 15% SOLVER</span>
+                <div className="border border-white/10 bg-white/5 p-3 rounded-xl">
+                  <span className="text-[9px] font-mono text-slate-400 block mb-1">RANK</span>
+                  <span className="text-[10px] font-mono font-bold text-amber-300 truncate block mt-1">TOP 15%</span>
                 </div>
               </div>
 
-              {/* Difficulty breakdown list */}
-              <div>
-                <span className="text-[9px] font-mono text-zinc-500 block mb-3 uppercase tracking-wider">
-                  Algorithmic Load & Difficulty distribution
+              <div className="space-y-3">
+                <span className="text-[10px] font-mono text-slate-400 block uppercase tracking-wider">
+                  Algorithmic Problem Distribution
                 </span>
-                <div className="space-y-3">
-                  {/* Easy */}
-                  <div>
-                    <div className="flex justify-between text-[9px] font-mono mb-1 text-zinc-400">
-                      <span>EASY (FOUNDATIONAL)</span>
-                      <span className="text-white">129 Solved</span>
-                    </div>
-                    <div className="w-full h-1.5 bg-zinc-900 rounded-full overflow-hidden">
-                      <div className="h-full bg-emerald-500 rounded-full" style={{ width: "84.3%" }} />
-                    </div>
+                <div>
+                  <div className="flex justify-between text-[10px] font-mono mb-1 text-slate-300">
+                    <span>EASY</span>
+                    <span className="text-emerald-400 font-bold">129 Solved</span>
                   </div>
-
-                  {/* Medium */}
-                  <div>
-                    <div className="flex justify-between text-[9px] font-mono mb-1 text-zinc-400">
-                      <span>MEDIUM (ALGORITHMIC)</span>
-                      <span className="text-white">22 Solved</span>
-                    </div>
-                    <div className="w-full h-1.5 bg-zinc-900 rounded-full overflow-hidden">
-                      <div className="h-full bg-amber-500 rounded-full" style={{ width: "14.4%" }} />
-                    </div>
+                  <div className="w-full h-1.5 bg-slate-900 rounded-full overflow-hidden">
+                    <div className="h-full bg-emerald-500 rounded-full" style={{ width: "84.3%" }} />
                   </div>
+                </div>
 
-                  {/* Hard */}
-                  <div>
-                    <div className="flex justify-between text-[9px] font-mono mb-1 text-zinc-400">
-                      <span>HARD (OPTIMIZATION)</span>
-                      <span className="text-white">2 Solved</span>
-                    </div>
-                    <div className="w-full h-1.5 bg-zinc-900 rounded-full overflow-hidden">
-                      <div className="h-full bg-rose-500 rounded-full" style={{ width: "2%" }} />
-                    </div>
+                <div>
+                  <div className="flex justify-between text-[10px] font-mono mb-1 text-slate-300">
+                    <span>MEDIUM</span>
+                    <span className="text-amber-400 font-bold">22 Solved</span>
+                  </div>
+                  <div className="w-full h-1.5 bg-slate-900 rounded-full overflow-hidden">
+                    <div className="h-full bg-amber-500 rounded-full" style={{ width: "14.4%" }} />
+                  </div>
+                </div>
+
+                <div>
+                  <div className="flex justify-between text-[10px] font-mono mb-1 text-slate-300">
+                    <span>HARD</span>
+                    <span className="text-rose-400 font-bold">2 Solved</span>
+                  </div>
+                  <div className="w-full h-1.5 bg-slate-900 rounded-full overflow-hidden">
+                    <div className="h-full bg-rose-500 rounded-full" style={{ width: "2%" }} />
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Action Link */}
-            <div className="mt-8 pt-4 border-t border-white/5 flex items-center justify-between">
-              <span className="text-[8px] font-mono text-zinc-600">
-                URL // leetcode.com/u/muhammed_riswan_p/
+            <div className="mt-8 pt-4 border-t border-white/10 flex items-center justify-between">
+              <span className="text-[10px] font-mono text-slate-500">
+                leetcode.com/u/muhammed_riswan_p/
               </span>
               <a
                 href="https://leetcode.com/u/muhammed_riswan_p/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-[10px] font-mono font-bold tracking-wider text-zinc-400 hover:text-white transition-colors group/link"
+                className="inline-flex items-center gap-1 text-xs font-mono font-bold text-amber-400 hover:text-white transition-colors"
               >
-                COMPILE SOLUTIONS
-                <ArrowUpRight className="w-3 h-3 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+                <span>Compile Solutions</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
             </div>
           </motion.div>

@@ -1,10 +1,9 @@
 "use client";
 
-import { motion, type Easing } from "framer-motion";
-import { Mail } from "lucide-react";
-import { useRef, useState, useEffect } from "react";
+import { motion } from "framer-motion";
+import { Mail, Phone, ExternalLink, Send } from "lucide-react";
 
-const GithubIcon = ({ size = 16, className = "" }: { size?: number; className?: string }) => (
+const GithubIcon = ({ size = 18, className = "" }: { size?: number; className?: string }) => (
   <svg
     width={size}
     height={size}
@@ -21,7 +20,7 @@ const GithubIcon = ({ size = 16, className = "" }: { size?: number; className?: 
   </svg>
 );
 
-const LinkedinIcon = ({ size = 16, className = "" }: { size?: number; className?: string }) => (
+const LinkedinIcon = ({ size = 18, className = "" }: { size?: number; className?: string }) => (
   <svg
     width={size}
     height={size}
@@ -39,208 +38,208 @@ const LinkedinIcon = ({ size = 16, className = "" }: { size?: number; className?
   </svg>
 );
 
-const LeetCodeIcon = ({ size = 16, className = "" }: { size?: number; className?: string }) => (
-  <svg
-    width={size}
-    height={size}
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    className={className}
-  >
-    <path d="M13.483 0a1.374 1.374 0 0 0-.961.414l-9.777 9.778a1.375 1.375 0 0 0 0 1.945l1.8 1.8a1.375 1.375 0 0 0 1.945 0L15.343 5.09a1.375 1.375 0 0 0 0-1.945l-1.8-1.8a1.374 1.374 0 0 0-.96-.414zM10.8 7.34a1.375 1.375 0 0 0-1.945 0L3.1 13.1a1.375 1.375 0 0 0 0 1.945l1.8 1.8a1.375 1.375 0 0 0 1.945 0l5.756-5.756a1.375 1.375 0 0 0 0-1.945l-1.8-1.8a1.373 1.373 0 0 0-.96-.414z" />
-    <path d="M12 9.515c-.157.001-.31.063-.424.177L6.343 14.93a1.375 1.375 0 0 0 0 1.945l1.8 1.8a1.375 1.375 0 0 0 1.945 0l4.135-4.135 4.135 4.135a1.375 1.375 0 0 0 1.945 0l1.8-1.8a1.375 1.375 0 0 0 0-1.945L12.424 9.692a1.374 1.374 0 0 0-.424-.177z" />
-  </svg>
-);
-
-const letterVariants = {
-  hidden: { opacity: 0, y: 40, rotateX: -90 },
-  visible: (i: number) => ({
-    opacity: 1,
-    y: 0,
-    rotateX: 0,
-    transition: {
-      duration: 0.5,
-      delay: i * 0.04,
-      ease: [0.645, 0.045, 0.355, 1] as Easing,
-    },
-  }),
-};
-
-function AnimatedHeading({ text }: { text: string }) {
-  return (
-    <span className="inline-block">
-      {text.split("").map((char, i) => (
-        <motion.span
-          key={i}
-          custom={i}
-          variants={letterVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: "-50px" }}
-          className="inline-block"
-          style={{ whiteSpace: char === " " ? "pre" : undefined }}
-        >
-          {char === " " ? "\u00A0" : char}
-        </motion.span>
-      ))}
-    </span>
-  );
-}
-
 export default function Footer() {
-  const footerRef = useRef<HTMLDivElement>(null);
-  const [mousePos, setMousePos] = useState({ x: 0.5, y: 0.5 });
-
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (footerRef.current) {
-        const rect = footerRef.current.getBoundingClientRect();
-        setMousePos({
-          x: (e.clientX - rect.left) / rect.width,
-          y: (e.clientY - rect.top) / rect.height,
-        });
-      }
-    };
-    window.addEventListener("mousemove", handleMouseMove);
-    return () => window.removeEventListener("mousemove", handleMouseMove);
-  }, []);
+  const targetRoles = [
+    "Data Scientist",
+    "ML Engineer",
+    "GenAI Developer",
+    "AI Engineer",
+    "MLOps Engineer",
+  ];
 
   return (
-    <footer
-      ref={footerRef}
-      id="contact"
-      className="relative bg-transparent w-full pt-24 pb-12 border-t border-white/10 overflow-hidden"
-    >
-      {/* Background Grid */}
-      <div className="absolute inset-0 portfolio-grid pointer-events-none opacity-20" />
+    <footer id="contact" className="relative bg-[#070a14] w-full pt-20 pb-12 border-t border-white/10 overflow-hidden">
+      {/* Ambient background glow */}
+      <div className="blob-1" />
 
-      {/* Mouse-tracking gradient glow */}
-      <motion.div
-        className="absolute pointer-events-none opacity-30"
-        style={{
-          background: `radial-gradient(600px circle at ${mousePos.x * 100}% ${mousePos.y * 100}%, rgba(255,255,255,0.08), transparent 70%)`,
-          inset: 0,
-        }}
-      />
-
-      {/* Pulsing decorative radar circles */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0">
+      <div className="max-w-[1020px] mx-auto px-6 md:px-10 relative z-10">
+        
+        {/* Centered Section Header */}
         <motion.div
-          className="w-[500px] h-[500px] md:w-[700px] md:h-[700px] border border-white/5 rounded-full"
-          animate={{
-            scale: [1, 1.05, 1],
-            opacity: [0.1, 0.2, 0.1],
-          }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <motion.div
-          className="absolute inset-12 w-[calc(100%-96px)] h-[calc(100%-96px)] border border-white/[0.03] rounded-full"
-          animate={{
-            scale: [1, 1.08, 1],
-            opacity: [0.05, 0.15, 0.05],
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        />
-      </div>
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="flex flex-col items-center text-center mb-14"
+        >
+          <div className="px-3.5 py-1 rounded-full bg-[#13192b] border border-[#2b3553] text-[#818cf8] text-[11px] font-mono tracking-widest uppercase mb-3.5 shadow-sm inline-flex items-center gap-2">
+            <span className="font-bold text-[#6366f1]">05</span>
+            <span>CONTACT</span>
+          </div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col justify-between h-full relative z-10">
-        {/* Contact Form & Call to Action */}
-        <div className="flex flex-col items-center pb-20 border-b border-white/10">
+          <h2 className="font-display font-black text-4xl md:text-5xl lg:text-6xl text-white tracking-tight leading-none">
+            Let's <span className="gradient-text">Connect</span>
+          </h2>
+
+          <p className="text-slate-400 font-mono text-xs md:text-sm max-w-lg mt-3 leading-relaxed">
+            Open to Data Science, ML Engineering, GenAI Developer, and AI Engineer roles. Let's build something great together.
+          </p>
+        </motion.div>
+
+        {/* 2-Column Contact Cards Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-7 mb-14">
+          
+          {/* Left Column: Direct Contact Details */}
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="w-full max-w-4xl flex flex-col items-center text-center"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="p-7 rounded-3xl bg-[#090e1c]/80 border border-white/10 backdrop-blur-md flex flex-col justify-between shadow-2xl"
           >
-            <motion.span
-              initial={{ opacity: 0, y: 10 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-              className="text-[10px] uppercase tracking-[0.3em] text-zinc-500 font-bold font-mono"
-            >
-              Get in Touch
-            </motion.span>
+            <div>
+              {/* Status Badge */}
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#062419]/80 border border-emerald-500/40 text-emerald-400 text-[11px] font-mono tracking-wide mb-5">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span>Available for opportunities</span>
+              </div>
 
-            <h2 className="font-display font-black text-5xl md:text-6xl lg:text-7xl text-white tracking-tighter mt-4 leading-none">
-              <AnimatedHeading text="LET'S BUILD" />
-              <br />
-              <AnimatedHeading text="something —" />
-              <br />
-              <AnimatedHeading text="SHIPPABLE." />
-            </h2>
+              <h3 className="font-display font-bold text-xl md:text-2xl text-white mb-2">
+                Ready to make an impact
+              </h3>
+              <p className="text-xs font-mono text-slate-400 leading-relaxed mb-5">
+                I'm actively seeking roles in Data Science, Machine Learning, Generative AI, and AI Engineering. With 10+ real-world projects, I'm ready to contribute from day one.
+              </p>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-sm font-mono text-zinc-400 mt-8 max-w-xl leading-relaxed mx-auto"
-            >
-              Available for full-time roles, pipelines engineering, or general ML consultation. Let's build something shippable — together.
-            </motion.p>
-
-            {/* Direct Contact Links */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="mt-12 w-full max-w-3xl font-mono text-xs md:text-sm"
-            >
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {/* Contact Info Items */}
+              <div className="space-y-2.5 font-mono text-xs">
+                
+                {/* Email Item */}
                 <a
                   href="mailto:muhammedriswanp7@gmail.com"
-                  className="group relative flex flex-col items-center text-center text-[#A1A1AA] hover:text-white transition-colors gap-2 py-4"
+                  className="p-3.5 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-indigo-500/40 hover:bg-white/5 transition-all flex items-center justify-between group"
                 >
-                  <Mail size={18} className="text-zinc-500 group-hover:text-white group-hover:scale-110 transition-all" />
-                  <span className="truncate w-full text-[11px]">muhammedriswanp7@gmail.com</span>
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-white group-hover:w-3/4 transition-all duration-300" />
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-xl bg-indigo-500/10 border border-indigo-500/20 text-indigo-400">
+                      <Mail size={15} />
+                    </div>
+                    <div>
+                      <span className="text-[9px] text-slate-500 block uppercase tracking-wider">EMAIL</span>
+                      <span className="text-slate-200 group-hover:text-white font-semibold truncate block">muhammedriswanp7@gmail.com</span>
+                    </div>
+                  </div>
                 </a>
-                <div className="group relative flex flex-col items-center text-center text-[#A1A1AA] gap-2 py-4">
-                  <span className="text-zinc-500 font-bold font-mono text-[10px] uppercase tracking-wider group-hover:text-white transition-colors">TEL</span>
-                  <span className="text-[11px]">+91 95623 69644</span>
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-white group-hover:w-3/4 transition-all duration-300" />
+
+                {/* Phone Item */}
+                <div className="p-3.5 rounded-2xl bg-white/[0.03] border border-white/10 flex items-center gap-3">
+                  <div className="p-2 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400">
+                    <Phone size={15} />
+                  </div>
+                  <div>
+                    <span className="text-[9px] text-slate-500 block uppercase tracking-wider">PHONE</span>
+                    <span className="text-slate-200 font-semibold">+91 95623 69644</span>
+                  </div>
                 </div>
-                <a
-                  href="https://github.com/muhammedriswanp"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative flex flex-col items-center text-center text-[#A1A1AA] hover:text-white transition-colors gap-2 py-4"
-                >
-                  <GithubIcon size={18} className="text-zinc-500 group-hover:text-white group-hover:scale-110 transition-all" />
-                  <span className="text-[11px]">GitHub</span>
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-white group-hover:w-3/4 transition-all duration-300" />
-                </a>
+
+                {/* LinkedIn Item */}
                 <a
                   href="https://linkedin.com/in/muhammed-riswanp"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group relative flex flex-col items-center text-center text-[#A1A1AA] hover:text-white transition-colors gap-2 py-4"
+                  className="p-3.5 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-cyan-500/40 hover:bg-white/5 transition-all flex items-center justify-between group"
                 >
-                  <LinkedinIcon size={18} className="text-zinc-500 group-hover:text-white group-hover:scale-110 transition-all" />
-                  <span className="text-[11px]">LinkedIn</span>
-                  <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[1px] bg-white group-hover:w-3/4 transition-all duration-300" />
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400">
+                      <LinkedinIcon size={15} />
+                    </div>
+                    <div>
+                      <span className="text-[9px] text-slate-500 block uppercase tracking-wider">LINKEDIN</span>
+                      <span className="text-slate-200 group-hover:text-white font-semibold">muhammed-riswanp</span>
+                    </div>
+                  </div>
+                  <ExternalLink size={13} className="text-slate-500 group-hover:text-cyan-400 transition-colors" />
                 </a>
+
+                {/* GitHub Item */}
+                <a
+                  href="https://github.com/muhammedriswanp"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3.5 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-purple-500/40 hover:bg-white/5 transition-all flex items-center justify-between group"
+                >
+                  <div className="flex items-center gap-3">
+                    <div className="p-2 rounded-xl bg-purple-500/10 border border-purple-500/20 text-purple-400">
+                      <GithubIcon size={15} />
+                    </div>
+                    <div>
+                      <span className="text-[9px] text-slate-500 block uppercase tracking-wider">GITHUB</span>
+                      <span className="text-slate-200 group-hover:text-white font-semibold">muhammedriswanp</span>
+                    </div>
+                  </div>
+                  <ExternalLink size={13} className="text-slate-500 group-hover:text-purple-400 transition-colors" />
+                </a>
+
               </div>
-            </motion.div>
+            </div>
           </motion.div>
+
+          {/* Right Column: Challenge & Role Focus */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="p-7 rounded-3xl bg-[#090e1c]/80 border border-white/10 backdrop-blur-md flex flex-col justify-between shadow-2xl"
+          >
+            <div>
+              {/* Stats Bar Top */}
+              <div className="grid grid-cols-3 gap-2 border-b border-white/10 pb-5 mb-5 text-center">
+                <div>
+                  <span className="font-display font-black text-2xl text-white gradient-text">10+</span>
+                  <span className="text-[9px] font-mono text-slate-400 block uppercase mt-0.5">PROJECTS</span>
+                </div>
+                <div className="border-l border-r border-white/10">
+                  <span className="font-display font-black text-2xl text-white gradient-text">1+</span>
+                  <span className="text-[9px] font-mono text-slate-400 block uppercase mt-0.5">YEARS EXP</span>
+                </div>
+                <div>
+                  <span className="font-display font-black text-2xl text-white gradient-text">15+</span>
+                  <span className="text-[9px] font-mono text-slate-400 block uppercase mt-0.5">TECH STACKS</span>
+                </div>
+              </div>
+
+              <h3 className="font-display font-bold text-xl md:text-2xl text-white mb-2.5">
+                Ready for the Next Challenge
+              </h3>
+              <p className="text-xs font-mono text-slate-300 leading-relaxed mb-5">
+                Whether it's building a RAG pipeline, deploying ML models to production, orchestrating data workflows on cloud, or crafting BI dashboards — I bring hands-on expertise and relentless curiosity to every project.
+              </p>
+
+              {/* Target Role Pills */}
+              <div className="flex flex-wrap gap-1.5 mb-6">
+                {targetRoles.map((role) => (
+                  <span
+                    key={role}
+                    className="text-[11px] font-mono px-2.5 py-1 rounded-xl bg-white/5 border border-white/10 text-indigo-300 font-semibold"
+                  >
+                    {role}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Send Email Gradient Button */}
+            <a
+              href="mailto:muhammedriswanp7@gmail.com?subject=Opportunity%20-%20Muhammed%20Riswan%20P"
+              className="w-full py-3.5 rounded-2xl bg-gradient-to-r from-[#6366f1] via-[#8b5cf6] to-[#06b6d4] hover:opacity-90 text-white font-mono text-xs md:text-sm font-bold shadow-lg shadow-indigo-500/30 transition-all duration-300 flex items-center justify-center gap-2 group hover:scale-[1.01]"
+            >
+              <Send size={15} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              <span>Send me an email</span>
+            </a>
+          </motion.div>
+
         </div>
 
-        {/* Lower row */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          className="flex flex-col md:flex-row items-center justify-between gap-6 pt-12 text-[9px] font-mono text-zinc-600 tracking-widest"
-        >
+        {/* Lower Row */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-7 border-t border-white/10 text-[10px] font-mono text-slate-500 tracking-wider">
           <div>
-            © 1998 — 2026 MUHAMMED RISWAN P. ALL RIGHTS RESERVED.
+            © {new Date().getFullYear()} MUHAMMED RISWAN P. ALL RIGHTS RESERVED.
           </div>
+          <div>
+            Kozhikode, Kerala, India 🇮🇳
+          </div>
+        </div>
 
-        </motion.div>
       </div>
     </footer>
   );
