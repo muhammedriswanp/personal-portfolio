@@ -9,6 +9,14 @@ export default function AllProjects() {
 
   const projects = [
     {
+      title: "Workforce Intelligence Platform",
+      domain: "Generative AI",
+      desc: "Agentic AI platform recommending employees for tasks using an 8-node LangGraph workflow, Pinecone policy RAG, FastMCP tool calling, Guardrails AI safety, and 34 FastAPI endpoints.",
+      tags: ["FastAPI", "LangGraph", "Groq LLM", "RAG", "Pinecone", "MCP", "Docker"],
+      link: "https://github.com/muhammedriswanp/workforce-intelligence-platform",
+      color: "#6366f1",
+    },
+    {
       title: "Market Entry Framework Comparison (CrewAI vs LangGraph)",
       domain: "Generative AI",
       desc: "Head-to-head comparison of CrewAI role-based multi-agent system vs LangGraph stateful graph workflow using the same D2C market entry expansion dataset, complete with Architecture Decision Record (ADR).",
@@ -63,14 +71,6 @@ export default function AllProjects() {
       tags: ["Python", "Guardrails", "Pydantic", "Prompt Injection", "PII Redaction", "Groq"],
       link: "https://github.com/muhammedriswanp/Guardrail-enabled-AI-assistant",
       color: "#10b981",
-    },
-    {
-      title: "JobFit RAG Assistant",
-      domain: "Generative AI",
-      desc: "AI-powered assistant analyzing job descriptions against resumes & portfolios with Sentence-BERT embeddings, Hugging Face transformers, and semantic matching.",
-      tags: ["Python", "Hugging Face", "Sentence-BERT", "RAG", "Prompt Engineering"],
-      link: "https://github.com/muhammedriswanp/jobfit-rag-assistant",
-      color: "#6366f1",
     },
     {
       title: "Traffic Flow Analyzer",
