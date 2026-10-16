@@ -9,8 +9,8 @@ export default function Director() {
       org: "Bridgeon Solutions",
       year: "2025–Present",
       tag: "Ongoing",
-      title: "Professional Data Science & AI Internship",
-      desc: "Built and shipped 10+ end-to-end AI/ML projects spanning classical ML, deep learning, computer vision, MLOps, and Generative AI. Designed and deployed live REST APIs on Render with DVC, MLflow, Docker, FastAPI, and GitHub Actions CI/CD workflows with EvidentlyAI data drift monitoring.",
+      title: "Data Science & AI / ML Engineer",
+      desc: "Built and shipped 10+ end-to-end AI/ML implementations spanning Generative AI, agentic workflows, RAG, machine learning, deep learning, computer vision, and MLOps. Developed production-oriented AI/ML services using Python, FastAPI, Docker, MLflow, GitHub Actions, and cloud deployment with EvidentlyAI data drift monitoring.",
     },
     {
       icon: "🎓",

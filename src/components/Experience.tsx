@@ -6,15 +6,15 @@ export default function Experience() {
   const experiences = [
     {
       company: "Bridgeon Solutions",
-      role: "Data Science & AI Intern",
+      role: "Data Science & AI / ML Engineer",
       period: "JUL 2025 — PRESENT",
       location: "Kozhikode, Kerala",
       type: "Professional Experience",
       desc: [
-        "Built and shipped 10+ end-to-end AI/ML projects spanning classical ML, deep learning, computer vision, MLOps, and Generative AI, applying each domain through production-level implementations.",
-        "Designed and deployed an end-to-end MLOps pipeline using DVC, MLflow, Docker, FastAPI, and GitHub Actions with a live cloud REST API on Render serving real-time ML cluster predictions.",
-        "Implemented automated CI/CD workflows and weekly data drift monitoring using EvidentlyAI with KS-test p-value alerting across 25 features.",
-        "Trained and evaluated 15+ machine learning models across supervised, unsupervised, and deep learning paradigms with MLflow experiment tracking.",
+        "Built and shipped 10+ end-to-end AI/ML implementations spanning Generative AI, agentic workflows, RAG, machine learning, deep learning, computer vision, and MLOps.",
+        "Developed production-oriented AI/ML services using Python, FastAPI, Docker, MLflow, GitHub Actions, and cloud deployment, with emphasis on API integration, testing, monitoring, and reproducible workflows.",
+        "Implemented CI/CD automation and data-drift monitoring using GitHub Actions, EvidentlyAI, and KS-test-based statistical alerting across 25 features.",
+        "Trained and evaluated 15+ machine learning and deep learning models using MLflow experiment tracking and systematic model evaluation.",
       ],
     },
     {

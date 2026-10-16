@@ -24,18 +24,18 @@ export default function Projects() {
   const featuredProjects = [
     {
       badge: "⭐ Flagship GenAI",
-      category: "GenAI · RAG · NLP",
-      title: "JobFit RAG Assistant",
-      subtitle: "AI-Powered Resume-to-Job Matching Engine",
-      desc: "An intelligent assistant that analyzes job descriptions against resumes and portfolios. Built a semantic matching engine using Sentence-BERT embeddings and cosine similarity, with Hugging Face pipelines for JD summarization and QA in a modular package architecture.",
+      category: "Agentic AI · RAG · MCP",
+      title: "Workforce Intelligence Platform",
+      subtitle: "Agentic AI Task-to-Employee Recommendation System",
+      desc: "An end-to-end Agentic AI platform that analyzes project tasks and recommends optimal employees using skill proficiency, capacity, workload, and company policy RAG across 34 REST API endpoints.",
       highlights: [
-        "Semantic matching with Sentence-BERT & cosine similarity",
-        "Hugging Face transformers for summarization & QA",
-        "Modular Python package architecture for LLM integration",
-        "Prompt engineering for skill extraction & matching",
+        "8-node LangGraph workflow orchestrating LLM role extraction, candidate matching & ranking",
+        "Policy-grounded RAG with Pinecone vector DB & FastEmbed (BAAI/bge-small-en-v1.5)",
+        "Exposed backend as FastMCP tools for conversational AI agent tool calling",
+        "FastAPI backend with Guardrails AI safety, PostgreSQL, Alembic & Docker Compose",
       ],
-      tags: ["Python", "Hugging Face", "Sentence Transformers", "NLP", "Semantic Similarity", "Prompt Engineering", "RAG"],
-      link: "https://github.com/muhammedriswanp/jobfit-rag-assistant",
+      tags: ["Python", "FastAPI", "LangGraph", "Groq LLM", "RAG", "Pinecone", "MCP", "Guardrails AI", "PostgreSQL", "Docker"],
+      link: "https://github.com/muhammedriswanp/workforce-intelligence-platform",
       color: "#6366f1",
     },
     {
